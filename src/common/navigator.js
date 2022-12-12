@@ -5,6 +5,7 @@ export const authStack = {
 
 export const mainStack = {
     homeTab: "HomeTab",
+    edit: "EditScreen"
 }
 
 export const home = {

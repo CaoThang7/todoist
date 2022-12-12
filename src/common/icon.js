@@ -1,5 +1,7 @@
 const Feather = {
     menu: "menu",
+    edit: "edit",
+    delete: "delete"
 }
 
 const EvilIcons = {

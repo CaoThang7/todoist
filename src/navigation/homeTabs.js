@@ -18,6 +18,7 @@ const HomeTabs = () => {
                     height: 80,
                     borderTopLeftRadius: 25,
                     borderTopRightRadius: 25,
+                    marginTop: -20,
                 },
                 tabBarLabelStyle: {
                     fontSize: 18,
@@ -34,7 +35,7 @@ const HomeTabs = () => {
                         marginTop: 5,
                     },
                     headerShown: false,
-                    tabBarLabel: 'Note',
+                    tabBarLabel: 'Ghi Chú',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="note" color={color} size={40} />
                     ),
@@ -48,7 +49,7 @@ const HomeTabs = () => {
                         marginTop: 5,
                     },
                     headerShown: false,
-                    tabBarLabel: 'Profile',
+                    tabBarLabel: 'Tài Khoản',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account" color={color} size={40} />
                     ),
