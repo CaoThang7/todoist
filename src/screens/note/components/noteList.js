@@ -1,11 +1,11 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native"
 import React from "react"
 import { useSelector } from "react-redux"
-import { todoListSelector } from "../../../redux/selectors"
+import { todoRemainingSelector } from "../../../redux/selectors"
 import NoteItem from "./noteItem"
 
 const NoteList = () => {
-    const data = useSelector(todoListSelector)
+    const data = useSelector(todoRemainingSelector);
 
     return (
         <View style={styles.container}>

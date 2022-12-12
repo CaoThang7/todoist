@@ -35,11 +35,21 @@ const rootReducer = (state = initState, action) => {
                 updatedArray.push(item);
             })
             return {
+                ...state,
                 todoList: updatedArray
+            }
+        case 'filters/searchTodo':
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    search: action.payload
+                },
             }
         case 'todoList/removeTodo':
             const filteredTodos = state.todoList.filter((i) => i.id !== action.payload);
             return {
+                ...state,
                 todoList: filteredTodos
             }
         default:
