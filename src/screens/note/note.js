@@ -6,12 +6,21 @@ import Icons from "../../common/icon"
 import FloatingButton from "../../components/button"
 import DialogCustom from '../../components/dialog'
 import NoteList from './components/noteList'
+import { useDispatch } from "react-redux"
+import { searchTodo } from "../../redux/actions"
 
 const Note = () => {
-    const [isFailure, setIsFailure] = useState(false)
+    const [isFailure, setIsFailure] = useState(false);
+    const [search, setSeach] = useState("");
+    const dispatch = useDispatch();
 
     const toggleDialog = () => {
         setIsFailure(!isFailure)
+    }
+
+    const handleInputChange = (value) => {
+        setSeach(value)
+        dispatch(searchTodo(value))
     }
 
     return (
@@ -26,6 +35,8 @@ const Note = () => {
                         type: 'font-awesome',
                         name: Icons.EvilIcons.search
                     }}
+                    value={search}
+                    onChangeText={handleInputChange}
                 />
                 <NoteList />
                 <FloatingButton.FloatingButton

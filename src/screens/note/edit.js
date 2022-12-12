@@ -8,7 +8,7 @@ import ButtonCreate from "../../components/button"
 import Loading from '../../components/loading'
 import { useDispatch } from "react-redux"
 import { editTodo } from "../../redux/actions"
-import {useNavigation} from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native"
 
 const EditScreen = ({ route }) => {
     const item = route.params.item;

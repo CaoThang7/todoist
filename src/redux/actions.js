@@ -18,3 +18,10 @@ export const removeTodo = (data) => {
         payload: data
     }
 }
+
+export const searchTodo = (data) => {
+    return {
+        type: 'filters/searchTodo',
+        payload: data
+    }
+}
