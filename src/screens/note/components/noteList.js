@@ -1,8 +1,9 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native"
 import React from "react"
 import { useSelector } from "react-redux"
-import { todoRemainingSelector } from "../../../redux/selectors"
 import NoteItem from "./noteItem"
+// import { todoRemainingSelector } from "../../../redux/selectors"  /*selector redux basic*/ 
+import { todoRemainingSelector } from "../../../redux/toolkit/selector/selector" //selector redux toolkit
 
 const NoteList = () => {
     const data = useSelector(todoRemainingSelector);

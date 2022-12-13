@@ -7,7 +7,8 @@ import FloatingButton from "../../components/button"
 import DialogCustom from '../../components/dialog'
 import NoteList from './components/noteList'
 import { useDispatch } from "react-redux"
-import { searchTodo } from "../../redux/actions"
+import { searchTodo } from "../../redux/actions" //action search redux basic
+import { filtersSlice } from "../../redux/toolkit/slices/filters" //action search redux toolkit
 
 const Note = () => {
     const [isFailure, setIsFailure] = useState(false);
@@ -20,7 +21,9 @@ const Note = () => {
 
     const handleInputChange = (value) => {
         setSeach(value)
-        dispatch(searchTodo(value))
+        // dispatch action search with redux basic:
+        /* dispatch(searchTodo(value)) */
+        dispatch(filtersSlice.actions.searchTodo(value)) // now use with redux toolkit better than.
     }
 
     return (

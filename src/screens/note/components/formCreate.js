@@ -5,9 +5,10 @@ import { Input } from "react-native-elements"
 import ButtonCreate from "../../../components/button"
 import DropdownMenuItem from '../../../components/dropdown'
 import { useDispatch } from "react-redux"
-import { createTodo } from "../../../redux/actions"
 import uuid from 'react-native-uuid';
 import Loading from '../../../components/loading'
+import { createTodo } from "../../../redux/actions" // action create redux basic
+import { todoListSlice } from "../../../redux/toolkit/slices/todo" // action create redux toolkit
 
 const FormCreate = () => {
     const [value, setValue] = useState(null);
@@ -32,12 +33,19 @@ const FormCreate = () => {
         if (todoName == "" || priority == null) {
             setTxtError(true);
         } else {
-            dispatch(createTodo({
+            // dispatch action createTodo with redux basic:
+            /* dispatch(createTodo({
+                 id: uuid.v4(),
+                 name: todoName,
+                 completed: false,
+                 priority: priority
+             })) */
+            dispatch(todoListSlice.actions.createTodo({
                 id: uuid.v4(),
                 name: todoName,
                 completed: false,
                 priority: priority
-            }))
+            })) // now we use dispatch action createTodo with redux toolkit
             setTodoName(""); //clear form 
             setTxtError(false);
             setLoading(true);

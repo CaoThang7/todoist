@@ -7,8 +7,9 @@ import DropdownMenuItem from '../../components/dropdown'
 import ButtonCreate from "../../components/button"
 import Loading from '../../components/loading'
 import { useDispatch } from "react-redux"
-import { editTodo } from "../../redux/actions"
 import { useNavigation } from "@react-navigation/native"
+import { editTodo } from "../../redux/actions" // action update redux basic
+import { todoListSlice } from "../../redux/toolkit/slices/todo" // action update redux toolkit
 
 const EditScreen = ({ route }) => {
     const item = route.params.item;
@@ -35,12 +36,19 @@ const EditScreen = ({ route }) => {
         if (todoName == "" || priority == null) {
             setTxtError(true);
         } else {
-            dispatch(editTodo({
+            // dispatch action updateTodo with redux basic:
+            /* dispatch(editTodo({
+                 id: item.id,
+                 name: todoName,
+                 completed: false,
+                 priority: priority
+             })) */
+            dispatch(todoListSlice.actions.updateTodo({
                 id: item.id,
                 name: todoName,
                 completed: false,
                 priority: priority
-            }))
+            })) // now use with redux toolkit better than.
             setTxtError(false);
             setLoading(true);
             setSuccess(true);

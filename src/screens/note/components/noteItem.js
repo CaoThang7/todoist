@@ -4,9 +4,10 @@ import { CheckBox, Icon } from "react-native-elements"
 import Icons from "../../../common/icon"
 import Color from "../../../common/color"
 import { useDispatch } from "react-redux"
-import { removeTodo } from "../../../redux/actions"
 import { useNavigation } from "@react-navigation/native"
 import { mainStack } from "../../../common/navigator"
+import { removeTodo } from "../../../redux/actions" // action remove redux basic
+import { todoListSlice } from "../../../redux/toolkit/slices/todo" // action remove redux toolkit
 
 const NoteItem = ({ item }) => {
   const [check4, setCheck4] = useState(false);
@@ -18,7 +19,9 @@ const NoteItem = ({ item }) => {
   }
 
   const handleRemoveTodo = () => {
-    dispatch(removeTodo(item.id))
+    // dispatch action removeTodo with redux basic:
+    /* dispatch(removeTodo(item.id)) */
+    dispatch(todoListSlice.actions.removeTodo(item.id)) // dispatch action with redux toolkit
   }
 
   return (
